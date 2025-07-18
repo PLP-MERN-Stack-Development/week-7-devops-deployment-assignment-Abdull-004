@@ -9,6 +9,8 @@ const authRoutes = require('./routes/authRoutes');
 const messageRoutes = require('./routes/messageRoutes');
 const Message = require('./models/Message');
 const jwt = require('jsonwebtoken');
+const helmet = require('helmet');
+const morgan = require('morgan');
 
 const app = express();
 const server = http.createServer(app);
@@ -31,9 +33,20 @@ app.use(cors({
   credentials: true
 }));
 app.use(express.json());
+app.use(helmet());
+app.use(morgan('combined'));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/messages', messageRoutes);
+app.use('/api/health', (req, res) => {
+  res.status(200).json({ status: 'ok', uptime: process.uptime() });
+});
+
+// Centralized error handler (should be after all routes)
+app.use((err, req, res, next) => {
+  console.error('Express error:', err);
+  res.status(err.status || 500).json({ message: err.message || 'Internal Server Error' });
+});
 
 // --- Socket.IO Authentication Middleware ---
 io.use((socket, next) => {

@@ -1,78 +1,34 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19956157&assignment_repo_type=AssignmentRepo)
-# Deployment and DevOps for MERN Applications
+# MERN Stack WebSockets App – Deployment & DevOps
 
-This assignment focuses on deploying a full MERN stack application to production, implementing CI/CD pipelines, and setting up monitoring for your application.
+## 🚀 Deployed Application
+- **Frontend (Vercel):** [https://deployment-website-sooty.vercel.app/]
+- **Backend (Render):** [https://week-7-devops-deployment-assignment-ddr5.onrender.com/]
 
-## Assignment Overview
+## 📦 Deployment Instructions
+See [`deployment/README.md`](deployment/README.md) for detailed deployment steps for both backend (Render) and frontend (Vercel).
 
-You will:
-1. Prepare your MERN application for production deployment
-2. Deploy the backend to a cloud platform
-3. Deploy the frontend to a static hosting service
-4. Set up CI/CD pipelines with GitHub Actions
-5. Implement monitoring and maintenance strategies
+## ⚙️ CI/CD
+- GitHub Actions workflows for CI and CD are in `.github/workflows/`:
+  - `frontend-ci.yml` / `backend-ci.yml`: Lint, test, build
+  - `frontend-cd.yml`: Deploys frontend to Vercel
+  - `backend-cd.yml`: Deploys backend to Render
+- Set required secrets in your GitHub repo for deployment (see workflow files for details).
 
-## Getting Started
+## 🔐 Environment Variables
+- See `client/env.example.txt` and `server/env.example.txt` for required variables.
+- Set these in Vercel (frontend) and Render (backend) dashboards.
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week7-Assignment.md` file
-4. Use the provided templates and configuration files as a starting point
+## 🩺 Monitoring & Maintenance
+See [`monitoring/README.md`](monitoring/README.md) for:
+- Health check endpoints
+- Uptime monitoring (e.g., UptimeRobot)
+- Error tracking (Sentry integration examples)
+- Performance monitoring
+- Maintenance plan (backups, updates, rollback)
 
-## Files Included
+## 🖼️ CI/CD Pipeline Screenshots
+- _Add screenshots of your GitHub Actions runs here_
 
-- `Week7-Assignment.md`: Detailed assignment instructions
-- `.github/workflows/`: GitHub Actions workflow templates
-- `deployment/`: Deployment configuration files and scripts
-- `.env.example`: Example environment variable templates
-- `monitoring/`: Monitoring configuration examples
-
-## Requirements
-
-- A completed MERN stack application from previous weeks
-- Accounts on the following services:
-  - GitHub
-  - MongoDB Atlas
-  - Render, Railway, or Heroku (for backend)
-  - Vercel, Netlify, or GitHub Pages (for frontend)
-- Basic understanding of CI/CD concepts
-
-## Deployment Platforms
-
-### Backend Deployment Options
-- **Render**: Easy to use, free tier available
-- **Railway**: Developer-friendly, generous free tier
-- **Heroku**: Well-established, extensive documentation
-
-### Frontend Deployment Options
-- **Vercel**: Optimized for React apps, easy integration
-- **Netlify**: Great for static sites, good CI/CD
-- **GitHub Pages**: Free, integrated with GitHub
-
-## CI/CD Pipeline
-
-The assignment includes templates for setting up GitHub Actions workflows:
-- `frontend-ci.yml`: Tests and builds the React application
-- `backend-ci.yml`: Tests the Express.js backend
-- `frontend-cd.yml`: Deploys the frontend to your chosen platform
-- `backend-cd.yml`: Deploys the backend to your chosen platform
-
-## Submission
-
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
-
-1. Complete all deployment tasks
-2. Set up CI/CD pipelines with GitHub Actions
-3. Deploy both frontend and backend to production
-4. Document your deployment process in the README.md
-5. Include screenshots of your CI/CD pipeline in action
-6. Add URLs to your deployed applications
-
-## Resources
-
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [MongoDB Atlas Documentation](https://docs.atlas.mongodb.com/)
-- [Render Documentation](https://render.com/docs)
-- [Railway Documentation](https://docs.railway.app/)
-- [Vercel Documentation](https://vercel.com/docs)
-- [Netlify Documentation](https://docs.netlify.com/) 
+## 📝 Additional Notes
+- For local development, copy the example env files to `.env` in each directory and fill in your values.
+- For any issues, see the assignment instructions or contact your instructor. 
